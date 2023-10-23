@@ -44,7 +44,6 @@ const Banner = () => {
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`,
         backgroundPosition: "center center",
         objectFit: "contain",
-        // backgroundAttachment: "fixed",
       }}
     >
       <div className="banner_content">
