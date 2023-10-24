@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body {
+
   /* min-width: 100vw;
   width: fit-content;
   min-height: 100vh; */
@@ -14,3 +15,4 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+

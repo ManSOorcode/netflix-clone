@@ -1,5 +1,7 @@
 // import React from "react";
+
 import requests from "../api/Request";
+
 import Banner from "./Banner";
 import "./HomeScreen.css";
 import Nav from "./Nav";
@@ -10,6 +12,7 @@ const HomeScreen = () => {
     <div className="homeScreen">
       <Nav />
       {/*Banner */}
+      <Banner />
       {/*Row */}
       <Row
         title="NETFLIX ORIGINALS"

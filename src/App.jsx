@@ -1,5 +1,5 @@
 import HomeScreen from "./component/HomeScreen";
-// import "./App.css";
+import "./App.css";
 
 function App() {
   return (

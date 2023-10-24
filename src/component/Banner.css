@@ -2,7 +2,9 @@
   position: relative;
 
   height: 650px;
+
   width: 100vw;
+
   color: #fff;
 }
 .banner_content {
@@ -27,8 +29,10 @@
 }
 
 .banner_fadeBottom {
+
   transform: translateY(334px);
   height: 7.4rem;
+
   background-image: linear-gradient(
     180deg,
     transparent,

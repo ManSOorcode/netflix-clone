@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
 
+
+
 import requests from "../api/Request";
 import axiosUrl from "../api/axios";
+
 
 const Banner = () => {
   const [movies, setMovies] = useState([]);
@@ -11,7 +14,10 @@ const Banner = () => {
     const abortController = new AbortController();
 
     async function fetchData() {
+
+
       const request = await axiosUrl.get(requests.fetchNetflixOriginals);
+
 
       setMovies(
         request.data.results[
@@ -26,10 +32,12 @@ const Banner = () => {
 
     return () => abortController.abort();
   }, []);
+
   // console.log(movies?.backdrop_path);
 
   const descriptionModification = (description, value) => {
     // console.log(description?.length);
+
     return description?.length > value
       ? `${description?.substr(0, 100 - 1)}...`
       : description;
@@ -43,6 +51,7 @@ const Banner = () => {
       style={{
         backgroundSize: "cover",
 
+
         backgroundImage: `${
           movies?.backdrop_path
             ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
@@ -50,6 +59,7 @@ const Banner = () => {
         }`,
         backgroundPosition: "center center",
         // backgroundAttachment: "fixed",
+
         objectFit: "contain",
       }}
     >
