@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
-
-
-
 import requests from "../api/Request";
 import axiosUrl from "../api/axios";
-
 
 const Banner = () => {
   const [movies, setMovies] = useState([]);
@@ -14,10 +10,7 @@ const Banner = () => {
     const abortController = new AbortController();
 
     async function fetchData() {
-
-
       const request = await axiosUrl.get(requests.fetchNetflixOriginals);
-
 
       setMovies(
         request.data.results[
@@ -50,7 +43,6 @@ const Banner = () => {
       className="banner"
       style={{
         backgroundSize: "cover",
-
 
         backgroundImage: `${
           movies?.backdrop_path
