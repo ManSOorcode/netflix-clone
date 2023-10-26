@@ -1,12 +1,19 @@
 import HomeScreen from "./component/HomeScreen";
 import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const routers = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeScreen />,
+  },
+]);
 
 function App() {
   return (
     <>
       <div className="app">
-        {/* <h1>Lets build netflix</h1> */}
-        <HomeScreen />
+        <RouterProvider router={routers} />
       </div>
     </>
   );
