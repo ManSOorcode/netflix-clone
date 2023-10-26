@@ -12,7 +12,7 @@ const SignUpForm = () => {
         {/* </div> */}
         <button type="submit">Sign In</button>
         <h4>
-          <span className="signupScreen_gray">New to Netflix?</span>
+          <span className="signupScreen_gray">New to Netflix? </span>
           <span className="signupScreen_link">Sign up now.</span>
         </h4>
       </form>
