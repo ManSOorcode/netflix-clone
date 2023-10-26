@@ -1,0 +1,43 @@
+.screen {
+  position: relative;
+  height: 100%;
+  background: url("https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg")
+    center no-repeat;
+  background-size: cover;
+}
+.screen_gradient {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.screen_logo {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 200px;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.screen_button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  /* width: 250px; */
+  /* background-color: rgb(233, 49, 29); */
+  background-color: #e50914;
+  font-size: 1rem;
+  padding: 10px 20px;
+  /* margin: 40px 40px 0 0; */
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-weight: 800;
+  border-radius: 4px;
+}

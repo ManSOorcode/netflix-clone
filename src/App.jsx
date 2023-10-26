@@ -1,11 +1,13 @@
-import HomeScreen from "./component/HomeScreen";
+import HomeScreen from "./screens/HomeScreen";
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LoginScreen from "./screens/LoginScreen";
 
+const user = null;
 const routers = createBrowserRouter([
   {
     path: "/",
-    element: <HomeScreen />,
+    element: !user ? <LoginScreen /> : <HomeScreen />,
   },
 ]);
 

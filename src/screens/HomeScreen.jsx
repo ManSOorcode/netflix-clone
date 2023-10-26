@@ -2,10 +2,10 @@
 
 import requests from "../api/Request";
 
-import Banner from "./Banner";
+import Banner from "../component/Banner";
 import "./HomeScreen.css";
-import Nav from "./Nav";
-import Row from "./Row";
+import Nav from "../component/Nav";
+import Row from "../component/Row";
 
 const HomeScreen = () => {
   return (
