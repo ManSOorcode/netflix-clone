@@ -5,6 +5,7 @@
     center no-repeat;
   background-size: cover;
 }
+
 .screen_gradient {
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
@@ -41,3 +42,66 @@
   font-weight: 800;
   border-radius: 4px;
 }
+
+.screen_body {
+  color: #fff;
+  position: absolute;
+  top: 30%;
+  padding: 20px;
+  width: 100%;
+  /* margin: 0 auto; */
+  text-align: center;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+
+.screen_body > h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+}
+.screen_body > h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+.screen_body > h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.screen_input {
+  margin: 20px 0 0;
+}
+
+.screen_center > input {
+  padding: 10px;
+  height: 50px;
+  width: 34%;
+  max-width: 600px;
+  outline-width: 0;
+  border: none;
+}
+
+.screen_getStarted {
+  padding: 16px 18px;
+  font-size: 1rem;
+  color: #fff;
+  background: #e50914;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.screen_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .screen_input > form > input:pl {
+  color: #0303;
+  padding: 0 0 0 40px;
+  font-size: 2rem;
+} */
