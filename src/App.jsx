@@ -5,28 +5,48 @@ import LoginScreen from "./screens/LoginScreen";
 
 import { auth } from "../firebse";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "./store/reducer";
 
-const user = null;
-const routers = createBrowserRouter([
-  {
-    path: "/",
-    element: !user ? <LoginScreen /> : <HomeScreen />,
-  },
-]);
+function userAuth(user) {
+  const routers = createBrowserRouter([
+    {
+      path: "/",
+      element: !user ? <LoginScreen /> : <HomeScreen />,
+    },
+  ]);
+  return routers;
+}
 
 function App() {
+  const user1 = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+
+  console.log(user1);
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) console.log(userAuth);
+      if (userAuth) {
+        console.log(userAuth);
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            token: userAuth.accessToken,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        dispatch(logout);
+      }
     });
     return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // console.log(user);
   return (
     <>
       <div className="app">
-        <RouterProvider router={routers} />
+        <RouterProvider router={userAuth(user1)} />
       </div>
     </>
   );
