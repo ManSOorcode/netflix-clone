@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfileScreen.css";
 import Nav from "../component/Nav";
 import { auth } from "../../firebse";
