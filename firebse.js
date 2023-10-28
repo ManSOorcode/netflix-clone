@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyAEFgOq6ZxftdQ4rN_Al29GcdujnlBhRqY",
   authDomain: "netflix-clone-9f049.firebaseapp.com",
+  // authDomain: "webflix-pied.vercel.app/",
   projectId: "netflix-clone-9f049",
   storageBucket: "netflix-clone-9f049.appspot.com",
   messagingSenderId: "495493944459",
