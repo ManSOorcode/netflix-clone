@@ -1,11 +1,12 @@
-import React from "react";
 import "./ProfileScreen.css";
 import Nav from "../component/Nav";
 import { auth } from "../../firebse";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
   return (
     <div className="profileScreen">
       <Nav />
@@ -18,7 +19,7 @@ const ProfileScreen = () => {
             className="profileScreen_avtar"
           />
           <div className="profileScreen_userDetails">
-            <h3 className="user_email">mansoor@gmail.com</h3>
+            <h3 className="user_email">{user.email}</h3>
             <h2 className="profileScreen_plantext">
               Plan (Current Plan: premium)
             </h2>
