@@ -8,21 +8,27 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./store/reducer";
 
+import ProfileScreen from "./screens/ProfileScreen";
+
 function userAuth(user) {
+  console.log(!user ? true : false);
   const routers = createBrowserRouter([
     {
       path: "/",
       element: !user ? <LoginScreen /> : <HomeScreen />,
     },
+    {
+      path: "/profile",
+      element: <ProfileScreen />,
+    },
   ]);
+
   return routers;
 }
 
 function App() {
   const user1 = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-
-  console.log(user1);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -36,12 +42,12 @@ function App() {
           })
         );
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     });
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
