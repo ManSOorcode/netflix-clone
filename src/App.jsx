@@ -8,11 +8,17 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./store/reducer";
 
+import ProfileScreen from "./screens/ProfileScreen";
+
 function userAuth(user) {
   const routers = createBrowserRouter([
     {
       path: "/",
       element: !user ? <LoginScreen /> : <HomeScreen />,
+    },
+    {
+      path: "/profile",
+      element: <ProfileScreen />,
     },
   ]);
   return routers;

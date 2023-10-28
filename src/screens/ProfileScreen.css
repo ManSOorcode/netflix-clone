@@ -1,0 +1,159 @@
+.profileScreen {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  /* width: 100%; */
+
+  color: #fff;
+}
+
+.profileScreen_main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+
+  /* width: 100%; */
+  /* height: 400px; */
+}
+
+.profileScreen_main > h1 {
+  text-align: left;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.profileScreen_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* align-items: center; */
+}
+
+.profileScreen_container > .profileScreen_avtar {
+  width: 100px;
+  place-self: flex-start;
+}
+
+.profileScreen_userDetails {
+  margin-left: 20px;
+  width: 900px;
+}
+
+.user_email {
+  background-color: cadetblue;
+  padding: 15px 0 15px 20px;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+
+.profileScreen_plantext {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.profileScreen_renewal {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.subscription_panel {
+  padding: 0 10px 0 20px;
+}
+
+.standard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.heading_standard > h3,
+.heading_standard > h3 {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.button_standard {
+  display: grid;
+  padding: 0 20px;
+}
+.standard_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #e50914;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.basic {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.heading_basic > h3,
+.heading_basic > h3 {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.button_basic {
+  display: grid;
+  padding: 0 20px;
+}
+
+.basic_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #e50914;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.premium {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading_premium > h3,
+.heading_premium > h3 {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.button_premium {
+  display: grid;
+  padding: 0 20px;
+}
+
+.premium_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #464344;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.profileScreen_signOut {
+  margin: 20px 0 0 0;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+
+  background-color: #e50914;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
