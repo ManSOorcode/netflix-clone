@@ -1,8 +1,11 @@
 import React from "react";
 import "./ProfileScreen.css";
 import Nav from "../component/Nav";
+import { auth } from "../../firebse";
+import { useNavigate } from "react-router-dom";
 
 const ProfileScreen = () => {
+  const navigate = useNavigate();
   return (
     <div className="profileScreen">
       <Nav />
@@ -54,7 +57,16 @@ const ProfileScreen = () => {
                   </div>
                 </div>
               </div>
-              <button className="profileScreen_signOut">Sign out</button>
+              <button
+                onClick={() => {
+                  console.log("clicked!");
+                  auth.signOut();
+                  navigate("/");
+                }}
+                className="profileScreen_signOut"
+              >
+                Sign out
+              </button>
             </div>
           </div>
         </div>
