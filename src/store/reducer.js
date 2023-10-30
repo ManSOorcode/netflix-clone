@@ -4,7 +4,7 @@ const initialState = {
   user: null,
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -17,6 +17,20 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const moviesIdSlice = createSlice({
+  name: "id",
+  initialState: {
+    movieId: {},
+  },
+  reducers: {
+    movieTrailer(state, action) {
+      console.log(action.payload);
+      state.movieId = { ...action.payload };
+    },
+  },
+});
 
-export default authSlice;
+// console.log(initialState.movieId);
+
+export const { login, logout } = authSlice.actions;
+export const { movieTrailer } = moviesIdSlice.actions;

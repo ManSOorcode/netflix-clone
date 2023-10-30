@@ -33,7 +33,6 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        console.log(userAuth);
         dispatch(
           login({
             uid: userAuth.uid,
@@ -48,6 +47,8 @@ function App() {
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
+
+  console.log(user1);
 
   return (
     <>
