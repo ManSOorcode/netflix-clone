@@ -19,7 +19,7 @@ const ProfileScreen = () => {
             className="profileScreen_avtar"
           />
           <div className="profileScreen_userDetails">
-            <h3 className="user_email">{user.email}</h3>
+            <h3 className="user_email">{user?.email}</h3>
             <h2 className="profileScreen_plantext">
               Plan (Current Plan: premium)
             </h2>

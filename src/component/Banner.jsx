@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Banner.css";
-import requests from "../api/Request";
+import Requestfunction from "../api/Request";
 import axiosUrl from "../api/axios";
 
 const Banner = () => {
   const [movies, setMovies] = useState([]);
+  const requests = Requestfunction();
+
+  // console.log(requests);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -39,34 +42,36 @@ const Banner = () => {
   // console.log(movies);
 
   return (
-    <header
-      className="banner"
-      style={{
-        backgroundSize: "cover",
+    <>
+      <header
+        className="banner"
+        style={{
+          backgroundSize: "cover",
 
-        backgroundImage: `${
-          movies?.backdrop_path
-            ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
-            : ""
-        }`,
-        backgroundPosition: "center center",
-        // backgroundAttachment: "fixed",
+          backgroundImage: `${
+            movies?.backdrop_path
+              ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
+              : ""
+          }`,
+          backgroundPosition: "center center",
+          // backgroundAttachment: "fixed",
 
-        objectFit: "contain",
-      }}
-    >
-      <div className="banner_content">
-        <h1 className="banner_title">{movies?.name}</h1>
-        <div className="banner_buttons">
-          <button className="banner_button">Play</button>
-          <button className="banner_button">My List</button>
+          objectFit: "contain",
+        }}
+      >
+        <div className="banner_content">
+          <h1 className="banner_title">{movies?.name}</h1>
+          <div className="banner_buttons">
+            <button className="banner_button">Play</button>
+            <button className="banner_button">My List</button>
+          </div>
+          <h1 className="banner_description">
+            {descriptionModification(movies?.overview, 100)}
+          </h1>
         </div>
-        <h1 className="banner_description">
-          {descriptionModification(movies?.overview, 100)}
-        </h1>
-      </div>
-      <div className="banner_fadeBottom" />
-    </header>
+        <div className="banner_fadeBottom" />
+      </header>
+    </>
   );
 };
 
