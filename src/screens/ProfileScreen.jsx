@@ -62,7 +62,7 @@ const ProfileScreen = () => {
                 onClick={() => {
                   console.log("clicked!");
                   auth.signOut();
-                  navigate("/");
+                  // navigate("/");
                 }}
                 className="profileScreen_signOut"
               >

@@ -19,7 +19,7 @@ function userAuth(user) {
     },
     {
       path: "/profile",
-      element: <ProfileScreen />,
+      element: !user ? <LoginScreen /> : <ProfileScreen />,
     },
   ]);
 
