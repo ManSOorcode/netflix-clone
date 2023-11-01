@@ -10,6 +10,8 @@ const Trailer = () => {
   const [isTrailerId, setTrailerId] = useState("");
   const movieId = useSelector((state) => state.id.movieId);
 
+  console.log(movieId);
+
   const API_KEY = "9012f7ec15dcb2b9d3e6e61f49989dd9";
 
   let url = `${movieId.type}/${movieId?.id}/videos?api_key=${API_KEY}&language=en-US`;
@@ -58,7 +60,6 @@ const Trailer = () => {
     return () => abortController.abort();
   }, [url, movieId.id]);
 
-  console.log(isTrailerId);
   //   console.log(movieId);
 
   const opts = {
@@ -72,10 +73,10 @@ const Trailer = () => {
     },
   };
   return (
-    <div className="trailer_container">
+    <div className={`trailer_container ${!isTrailerId && "hidden"}`}>
       <h2>TV/Movies Trailer</h2>
 
-      {isTrailerId ? <YouTube videoId={`${isTrailerId}`} opts={opts} /> : ""}
+      <YouTube videoId={`${isTrailerId}`} opts={opts} />
     </div>
   );
 };

@@ -4,12 +4,22 @@ import { useEffect, useState } from "react";
 import axiosUrl from "../api/axios";
 import "./Row.css";
 
+// import { useDispatch } from "react-redux";
+// import { movieTrailer, movieTrailerAlready } from "../store/reducer";
+import Trailer from "./Trailer";
 import { useDispatch } from "react-redux";
-import { movieTrailer } from "../store/reducer";
+import { movies } from "../store/reducer";
 
-const Row = ({ title, fetchUrl, isLargeRow = false, type }) => {
+const Row = ({
+  title,
+  fetchUrl,
+  isLargeRow,
+  type,
+  youtubeHandler,
+  trailer,
+}) => {
   const [rowMovies, setRowMovies] = useState([]);
-  // const [isTrailerUrl, setTrailerUrl] = useState(false);
+
   const dispatch = useDispatch();
 
   // const mediaType = "tv";
@@ -21,6 +31,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false, type }) => {
     async function fetchMovies() {
       //   console.log(fetchUrl);
       const response = await axiosUrl.get(fetchUrl);
+      // dispatch(movies(response.data.results));
       setRowMovies(response.data.results);
 
       return response;
@@ -32,31 +43,30 @@ const Row = ({ title, fetchUrl, isLargeRow = false, type }) => {
 
   const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-  // console.log(rowMovies);
+  // console.log(trailer);
 
-  const clickhandler = (id, type) => {
-    // console.log(id, type, movie);
-    dispatch(movieTrailer({ id: id, type: type }));
-  };
-  //   console.log(rowMovies.backdrop_path);
+  // console.log(youtubeHandler);
   return (
     <div className="row">
       <h2>{title}</h2>
       <div className="row_posters">
-        {rowMovies.map(
-          (movie) =>
+        {rowMovies?.map((movie) => {
+          // console.log(
+          //   (isLargeRow && movie.poster_path) ||
+          //     (!isLargeRow && movie.backdrop_path)
+          // );
+          return (
             ((isLargeRow && movie.poster_path) ||
               (!isLargeRow && movie.backdrop_path)) && (
               <img
                 onClick={() =>
-                  clickhandler(
+                  youtubeHandler(
                     movie.id,
                     movie.media_type
                       ? movie.media_type === type
                         ? type
                         : movie.media_type
-                      : type,
-                    movie
+                      : type
                   )
                 }
                 className={`row_poster ${isLargeRow && `row_posterLarge`}`}
@@ -73,8 +83,10 @@ const Row = ({ title, fetchUrl, isLargeRow = false, type }) => {
                 alt={movie.name}
               />
             )
-        )}
+          );
+        })}
       </div>
+      {trailer && <Trailer />}
     </div>
   );
 };

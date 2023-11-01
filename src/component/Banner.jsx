@@ -5,7 +5,7 @@ import axiosUrl from "../api/axios";
 
 const Banner = () => {
   const [movies, setMovies] = useState([]);
-  const requests = Requestfunction();
+  const { _data, requests } = Requestfunction();
 
   // console.log(requests);
 

@@ -27,10 +27,27 @@ export const moviesIdSlice = createSlice({
       console.log(action.payload);
       state.movieId = { ...action.payload };
     },
+    movieTrailerAlready(state) {
+      state.movieId = {};
+    },
+  },
+});
+
+export const moviesDataSlice = createSlice({
+  name: "movies",
+  initialState: {
+    movie: [],
+  },
+  reducers: {
+    movies(state, action) {
+      console.log(action.payload);
+      state.movie = [...action.payload];
+    },
   },
 });
 
 // console.log(initialState.movieId);
 
 export const { login, logout } = authSlice.actions;
-export const { movieTrailer } = moviesIdSlice.actions;
+export const { movieTrailer, movieTrailerAlready } = moviesIdSlice.actions;
+export const { movies } = moviesDataSlice.actions;
