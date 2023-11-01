@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import HomeScreen from "./screens/HomeScreen";
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -45,7 +46,6 @@ function App() {
       }
     });
     return unsubscribe;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   console.log(user1);

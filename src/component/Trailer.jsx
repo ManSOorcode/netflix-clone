@@ -60,8 +60,6 @@ const Trailer = () => {
     return () => abortController.abort();
   }, [url, movieId.id]);
 
-  //   console.log(movieId);
-
   const opts = {
     height: "390",
     width: "100%",
@@ -73,7 +71,7 @@ const Trailer = () => {
     },
   };
   return (
-    <div className={`trailer_container ${!isTrailerId && "hidden"}`}>
+    <div className={`trailer_container`}>
       <h2>TV/Movies Trailer</h2>
 
       <YouTube videoId={`${isTrailerId}`} opts={opts} />

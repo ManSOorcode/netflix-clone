@@ -50,10 +50,10 @@ const SignUpForm = () => {
     <div className="signUpScreen">
       <form>
         <h1>Sign In</h1>
-        {/* <div className="signupScreen_body"> */}
+
         <input ref={userEmail} type="email" placeholder="Email" />
         <input ref={userPassword} type="password" placeholder="Password" />
-        {/* </div> */}
+
         <button type="submit" onClick={signIn}>
           Sign In
         </button>

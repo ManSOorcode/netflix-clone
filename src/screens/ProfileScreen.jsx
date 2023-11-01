@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
   return (
     <div className="profileScreen">
@@ -59,11 +58,7 @@ const ProfileScreen = () => {
                 </div>
               </div>
               <button
-                onClick={() => {
-                  console.log("clicked!");
-                  auth.signOut();
-                  // navigate("/");
-                }}
+                onClick={() => auth.signOut()}
                 className="profileScreen_signOut"
               >
                 Sign out

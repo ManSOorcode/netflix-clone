@@ -55,26 +55,14 @@ const Requestfunction = () => {
     },
     // {
     //   id: 8,
-    //   title: "NETFLIX ORIGINALS",
-    //   fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+    //   title: "Romance Movies",
+    //   fetch: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
     //   isLargeRow: false,
     //   type: "movie",
     // },
   ];
 
-  const requests = {
-    fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
-    fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-    fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
-    fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
-    fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
-    fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
-    // fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-    fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&page=7&sort_by=popularity.desc&with_genres=99`,
-    // fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
-    //trailer-API
-  };
-  return { moviedataBase, requests };
+  return moviedataBase;
 };
 
 export default Requestfunction;

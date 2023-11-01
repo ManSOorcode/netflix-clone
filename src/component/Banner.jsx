@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./Banner.css";
 import Requestfunction from "../api/Request";
@@ -5,19 +6,19 @@ import axiosUrl from "../api/axios";
 
 const Banner = () => {
   const [movies, setMovies] = useState([]);
-  const { _data, requests } = Requestfunction();
+  const moviedataBase = Requestfunction();
 
-  // console.log(requests);
+  const netFlixUrl = moviedataBase[0].fetch;
 
   useEffect(() => {
     const abortController = new AbortController();
 
     async function fetchData() {
-      const request = await axiosUrl.get(requests.fetchNetflixOriginals);
+      const request = await axiosUrl.get(netFlixUrl);
 
       setMovies(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
+        request.data?.results[
+          Math.floor(Math.random() * request.data.results?.length - 1)
         ]
       );
 
@@ -29,17 +30,11 @@ const Banner = () => {
     return () => abortController.abort();
   }, []);
 
-  // console.log(movies?.backdrop_path);
-
   const descriptionModification = (description, value) => {
-    // console.log(description?.length);
-
     return description?.length > value
       ? `${description?.substr(0, 100 - 1)}...`
       : description;
   };
-
-  // console.log(movies);
 
   return (
     <>
@@ -54,7 +49,6 @@ const Banner = () => {
               : ""
           }`,
           backgroundPosition: "center center",
-          // backgroundAttachment: "fixed",
 
           objectFit: "contain",
         }}

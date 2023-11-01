@@ -1,5 +1,3 @@
-// import React from "react";
-
 import Requestfunction from "../api/Request";
 
 import Banner from "../component/Banner";
@@ -10,11 +8,9 @@ import { useDispatch } from "react-redux";
 import { movieTrailer } from "../store/reducer";
 import { useState } from "react";
 
-// import Trailer from "../component/Trailer";
-
 const HomeScreen = () => {
   const [isTrailer, setTrailer] = useState("");
-  const { moviedataBase, requests } = Requestfunction();
+  const moviedataBase = Requestfunction();
 
   const dispatch = useDispatch();
 
@@ -24,7 +20,6 @@ const HomeScreen = () => {
     console.log(isTrailer === index);
 
     if (isTrailer === index) {
-      // dispatch(movieTrailerAlready());
       setTrailer("");
     } else {
       dispatch(movieTrailer({ id: id, type: type }));
@@ -32,14 +27,13 @@ const HomeScreen = () => {
     }
   };
 
-  // console.log(clickhandler);
-
   return (
     <div className="homeScreen">
+      {/*Navigation */}
       <Nav />
+
       {/*Banner */}
       <Banner />
-      {/*Trailer */}
 
       {/*Row */}
       {moviedataBase?.map((movieRequest, index) => (
@@ -54,54 +48,6 @@ const HomeScreen = () => {
           trailer={index === isTrailer}
         />
       ))}
-      {/* <Row
-        title="Tranding Now"
-        fetchUrl={requests.fetchTrending}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      />
-      <Row
-        title="Top Rated"
-        fetchUrl={requests.fetchTopRated}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      />
-      <Row
-        title="Action Movies"
-        fetchUrl={requests.fetchActionMovies}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      />
-      <Row
-        title="Comedy Movies"
-        fetchUrl={requests.fetchComedyMovies}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      />
-      <Row
-        title="Horror Movies"
-        fetchUrl={requests.fetchHorrorMovies}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      /> */}
-      {/* <Row
-        title="Romance Movies"
-        fetchUrl={requests.fetchRomanceMovies}
-        type="movie"
-      /> */}
-      {/* <Row
-        title="Documentaries"
-        fetchUrl={requests.fetchDocumentaries}
-        type="movie"
-        youtubeHandler={clickhandler}
-        trailer={isTrailer}
-      /> */}
-      {/* <Row title='Tranding Now' fetchUrl={request.fetchTranding}/> */}
     </div>
   );
 };

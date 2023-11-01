@@ -4,6 +4,7 @@ const initialState = {
   user: null,
 };
 
+// * Authentication slicer
 export const authSlice = createSlice({
   name: "user",
   initialState,
@@ -17,6 +18,7 @@ export const authSlice = createSlice({
   },
 });
 
+// * Movies and Tv Id slicer
 export const moviesIdSlice = createSlice({
   name: "id",
   initialState: {
@@ -33,21 +35,5 @@ export const moviesIdSlice = createSlice({
   },
 });
 
-export const moviesDataSlice = createSlice({
-  name: "movies",
-  initialState: {
-    movie: [],
-  },
-  reducers: {
-    movies(state, action) {
-      console.log(action.payload);
-      state.movie = [...action.payload];
-    },
-  },
-});
-
-// console.log(initialState.movieId);
-
 export const { login, logout } = authSlice.actions;
 export const { movieTrailer, movieTrailerAlready } = moviesIdSlice.actions;
-export const { movies } = moviesDataSlice.actions;
