@@ -36,18 +36,20 @@ const HomeScreen = () => {
       <Banner />
 
       {/*Row */}
-      {moviedataBase?.map((movieRequest, index) => (
-        <Row
-          key={movieRequest.id}
-          id={movieRequest.id}
-          title={movieRequest.title}
-          fetchUrl={movieRequest.fetch}
-          isLargeRow={movieRequest.isLargeRow}
-          type={movieRequest.type}
-          youtubeHandler={(id, type) => clickhandler(id, type, index)}
-          trailer={index === isTrailer}
-        />
-      ))}
+      <div className="row_container">
+        {moviedataBase?.map((movieRequest, index) => (
+          <Row
+            key={movieRequest.id}
+            id={movieRequest.id}
+            title={movieRequest.title}
+            fetchUrl={movieRequest.fetch}
+            isLargeRow={movieRequest.isLargeRow}
+            type={movieRequest.type}
+            youtubeHandler={(id, type) => clickhandler(id, type, index)}
+            trailer={index === isTrailer}
+          />
+        ))}
+      </div>
     </div>
   );
 };
