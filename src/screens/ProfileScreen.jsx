@@ -1,7 +1,7 @@
 import "./ProfileScreen.css";
 import Nav from "../component/Nav";
 import { auth } from "../../firebse";
-import { useNavigate } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {

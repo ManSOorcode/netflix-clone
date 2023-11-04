@@ -4,9 +4,6 @@
   align-items: center;
 
   height: 100vh;
-
-  /* width: 100%; */
-
   color: #fff;
 }
 
@@ -14,10 +11,6 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
-
-  /* width: 100%; */
-  /* height: 400px; */
 }
 
 .profileScreen_main > h1 {
@@ -35,14 +28,13 @@
 }
 
 .profileScreen_container > .profileScreen_avtar {
-  width: 100px;
+  width: 80px;
   place-self: flex-start;
   border-radius: 8px;
 }
 
 .profileScreen_userDetails {
   margin-left: 20px;
-  width: 900px;
 }
 
 .user_email {
@@ -160,4 +152,92 @@
   border-radius: 4px;
 
   cursor: pointer;
+}
+.profileScreen_userDetails,
+.profileScreen_avtar,
+.profileScreen_main,
+h1,
+.standard,
+.basic,
+.premium,
+.standard_button,
+.basic_button,
+.premium_button,
+.user_email,
+.profileScreen_plantext,
+.profileScreen_renewal,
+.subscription_panel {
+  transition: all 0.4s ease-in-out;
+}
+
+@media screen and (min-width: 780px) {
+  .profileScreen_userDetails {
+    width: 600px;
+    /* margin-left: 20px; */
+  }
+
+  .profileScreen_container > .profileScreen_avtar {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .profileScreen_main {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profileScreen_main > h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .profileScreen_container > .profileScreen_avtar {
+    width: 50px;
+    place-self: flex-start;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .standard,
+  .basic,
+  .premium {
+    margin-bottom: 10px;
+  }
+
+  .standard_button,
+  .basic_button,
+  .premium_button {
+    padding: 10px 10px;
+    font-size: 1rem;
+  }
+
+  .button_standard,
+  .button_premium,
+  .button_basic {
+    padding: 0;
+  }
+
+  .user_email {
+    margin-bottom: 10px;
+  }
+  .profileScreen_plantext {
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+  }
+  .profileScreen_renewal {
+    margin-bottom: 20px;
+  }
+
+  .subscription_panel {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .profileScreen_userDetails {
+    margin: 0;
+  }
 }
