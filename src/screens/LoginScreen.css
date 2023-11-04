@@ -28,6 +28,7 @@
   width: 150px;
   object-fit: contain;
   padding: 25px 0 0 25px;
+  z-index: 2;
 }
 
 .screen_button {
