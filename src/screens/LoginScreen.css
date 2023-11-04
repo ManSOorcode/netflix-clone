@@ -35,7 +35,6 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  /* width: 250px; */
 
   background-color: #e50914;
   font-size: 1rem;
@@ -164,7 +163,5 @@ h1 {
   .screen_center > input {
     width: 100%;
     margin-bottom: 20px;
-  }
-  .screen_getStarted {
   }
 }
