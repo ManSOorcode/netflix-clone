@@ -31,7 +31,7 @@ const Row = ({
     return () => abortController.abort();
   }, [fetchUrl]);
 
-  const baseUrl = "https://image.tmdb.org/t/p/original/";
+  const baseUrl = "https://image.tmdb.org/t/p/w500";
 
   return (
     <div className="row">
