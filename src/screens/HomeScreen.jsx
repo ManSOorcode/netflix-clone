@@ -14,15 +14,11 @@ const HomeScreen = () => {
 
   const dispatch = useDispatch();
 
-  const clickhandler = (id, type, index) => {
-    console.log(isTrailer);
-
-    console.log(isTrailer === index);
-
+  const clickhandler = (id, type, movieName, index) => {
     if (isTrailer === index) {
       setTrailer("");
     } else {
-      dispatch(movieTrailer({ id: id, type: type }));
+      dispatch(movieTrailer({ id: id, type: type, movieName: movieName }));
       setTrailer(index);
     }
   };
@@ -45,7 +41,9 @@ const HomeScreen = () => {
             fetchUrl={movieRequest.fetch}
             isLargeRow={movieRequest.isLargeRow}
             type={movieRequest.type}
-            youtubeHandler={(id, type) => clickhandler(id, type, index)}
+            youtubeHandler={(id, type, movieName) =>
+              clickhandler(id, type, movieName, index)
+            }
             trailer={index === isTrailer}
           />
         ))}

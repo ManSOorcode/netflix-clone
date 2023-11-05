@@ -10,9 +10,7 @@ const Trailer = () => {
   const [isTrailerId, setTrailerId] = useState("");
   const movieId = useSelector((state) => state.id.movieId);
 
-  console.log(movieId);
-
-  const API_KEY = "9012f7ec15dcb2b9d3e6e61f49989dd9";
+  const API_KEY = import.meta.env.VITE_MOVIE_KEY;
 
   let url = `${movieId.type}/${movieId?.id}/videos?api_key=${API_KEY}&language=en-US`;
 
@@ -72,7 +70,11 @@ const Trailer = () => {
   };
   return (
     <div className={`trailer_container`}>
-      <h2>TV/Movies Trailer</h2>
+      {/* {id: 65494, type: 'tv', movieName: 'The Crown'} */}
+      <h2>
+        {movieId.type.toUpperCase()} {movieId.type === "tv" ? "series " : ""}
+        {movieId.movieName}
+      </h2>
 
       <YouTube videoId={`${isTrailerId}`} opts={opts} />
     </div>

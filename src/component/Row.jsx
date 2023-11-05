@@ -49,7 +49,10 @@ const Row = ({
                       ? movie.media_type === type
                         ? type
                         : movie.media_type
-                      : type
+                      : type,
+                    movie.media_type === "movie"
+                      ? movie.original_title
+                      : movie.name
                   )
                 }
                 className={`row_poster ${isLargeRow && `row_posterLarge`}`}

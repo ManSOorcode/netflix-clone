@@ -1,6 +1,6 @@
 // import { useSelector } from "react-redux";
 
-const API_KEY = "9012f7ec15dcb2b9d3e6e61f49989dd9";
+const API_KEY = import.meta.env.VITE_MOVIE_KEY;
 
 const Requestfunction = () => {
   const moviedataBase = [
