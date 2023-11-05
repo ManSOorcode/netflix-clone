@@ -153,20 +153,8 @@
 
   cursor: pointer;
 }
-.profileScreen_userDetails,
-.profileScreen_avtar,
-.profileScreen_main,
-h1,
-.standard,
-.basic,
-.premium,
-.standard_button,
-.basic_button,
-.premium_button,
-.user_email,
-.profileScreen_plantext,
-.profileScreen_renewal,
-.subscription_panel {
+
+.profileScreen * {
   transition: all 0.4s ease-in-out;
 }
 

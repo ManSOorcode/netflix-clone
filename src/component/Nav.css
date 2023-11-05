@@ -22,13 +22,13 @@
 
 .nav_logo {
   position: fixed;
-  left: 0;
-  top: 30px;
+  left: 20px;
+  top: 20px;
   cursor: pointer;
   object-fit: contain;
 
-  width: 80px;
-  padding: 0 0 0 20px;
+  width: 120px;
+  /* padding: 0 0 0 20px; */
 }
 
 .nav_avatar {
