@@ -11,7 +11,7 @@ const LoginScreen = () => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
           className="screen_logo"
-          alt=""
+          alt="screen_logo"
         />
         <button className="screen_button" onClick={() => setSignUp(true)}>
           Sign In
@@ -22,13 +22,18 @@ const LoginScreen = () => {
               <SignUpForm />
             ) : (
               <>
-                <h1>Unlimited films, TV programmes and more.</h1>
-                <h2>Watch anywhere. Cancel at any time.</h2>
-                <h3>
-                  Ready to watch? Enter your email to create or restart your
-                  membership.
-                </h3>
+                <h1 className="screen_body_main_heading">
+                  Unlimited films, TV programmes and more.
+                </h1>
+                <h2 className="screen_body_text">
+                  Watch anywhere. Cancel at any time.
+                </h2>
+
                 <div className="screen_input">
+                  <h3 className="screen_input_text">
+                    Ready to watch? Enter your email to create or restart your
+                    membership.
+                  </h3>
                   <form onClick={() => setSignUp(true)}>
                     <div className="screen_center">
                       <input type="emai" placeholder="Email Address" />
