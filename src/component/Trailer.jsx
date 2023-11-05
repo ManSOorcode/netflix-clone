@@ -10,9 +10,9 @@ const Trailer = () => {
   const [isTrailerId, setTrailerId] = useState("");
   const movieId = useSelector((state) => state.id.movieId);
 
-  const API_KEY = import.meta.env.VITE_MOVIE_KEY;
-
-  let url = `${movieId.type}/${movieId?.id}/videos?api_key=${API_KEY}&language=en-US`;
+  let url = `${movieId.type}/${movieId?.id}/videos?api_key=${
+    import.meta.env.VITE_MOVIE_KEY
+  }&language=en-US`;
 
   const findingKey = (trailersArr) => {
     if (trailersArr.length === 1) {
