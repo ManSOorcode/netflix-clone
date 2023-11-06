@@ -12,7 +12,6 @@ import { login, logout } from "./store/reducer";
 import ProfileScreen from "./screens/ProfileScreen";
 
 function userAuth(user) {
-  console.log(!user ? true : false);
   const routers = createBrowserRouter([
     {
       path: "/",
@@ -47,8 +46,6 @@ function App() {
     });
     return unsubscribe;
   }, [dispatch]);
-
-  console.log(user1);
 
   return (
     <>

@@ -42,7 +42,8 @@ const Row = ({
             ((isLargeRow && movie.poster_path) ||
               (!isLargeRow && movie.backdrop_path)) && (
               <img
-                onClick={() =>
+                onClick={() => {
+                  console.log(movie, movie.title, movie.media_type, movie.name);
                   youtubeHandler(
                     movie.id,
                     movie.media_type
@@ -50,11 +51,9 @@ const Row = ({
                         ? type
                         : movie.media_type
                       : type,
-                    movie.media_type === "movie"
-                      ? movie.original_title
-                      : movie.name
-                  )
-                }
+                    movie.media_type === type ? movie.name : movie.title
+                  );
+                }}
                 className={`row_poster ${isLargeRow && `row_posterLarge`}`}
                 key={movie.id}
                 src={`${baseUrl}${

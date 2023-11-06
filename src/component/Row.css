@@ -2,6 +2,7 @@
   font-size: 1rem;
   color: #fff;
   margin: 0 0 0 20px;
+  padding-bottom: 20px;
 }
 .row_posters {
   display: flex;
@@ -18,7 +19,7 @@
   max-height: 100px;
   object-fit: contain;
   margin: 0 10px 0 0;
-  /* width: 100%; */
+
   transition: tranform 450ms ease-in;
 }
 

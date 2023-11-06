@@ -1,9 +1,18 @@
 .trailer_container {
-  margin: 20px 0 20px 0;
+  margin: 20px 0 20px 0px;
+  padding: 0 20px 0 0;
   font-size: 1.4rem;
   color: #fff;
   width: 100%;
 }
 .trailer_container > h2 {
   padding: 0 0 20px 20px;
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 480px) {
+  .trailer_container > h2 {
+    padding: 0 0 20px 20px;
+    font-size: 1rem;
+  }
 }
