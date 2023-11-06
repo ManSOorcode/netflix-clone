@@ -1,6 +1,6 @@
 import "./ProfileScreen.css";
 import Nav from "../component/Nav";
-import { auth } from "../../firebse";
+import { auth } from "../../firebase";
 
 import { useSelector } from "react-redux";
 

@@ -4,7 +4,7 @@ import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
 
-import { auth } from "../firebse";
+import { auth } from "../firebase";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./store/reducer";
