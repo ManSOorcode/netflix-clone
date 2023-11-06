@@ -61,7 +61,7 @@ const Requestfunction = () => {
       title: "Documentaries",
       fetch: `/discover/movie?api_key=${
         import.meta.env.VITE_MOVIE_KEY
-      }&include_adult=false&include_video=false&language=en-US&page=7&sort_by=popularity.desc&with_genres=99`,
+      }&include_adult=false&include_video=false&language=en-US&page=8&sort_by=popularity.desc&with_genres=99`,
       isLargeRow: false,
       type: "movie",
     },
