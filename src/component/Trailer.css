@@ -10,7 +10,7 @@
   font-size: 1.6rem;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
   .trailer_container > h2 {
     padding: 0 0 20px 20px;
     font-size: 1rem;
