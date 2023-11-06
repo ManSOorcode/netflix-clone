@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./SignUpForm.css";
 import { auth } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "@firebase/auth";
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
