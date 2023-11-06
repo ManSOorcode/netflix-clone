@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import fetchData from "./action";
 
 const initialState = {
   user: null,
@@ -29,11 +30,50 @@ export const moviesIdSlice = createSlice({
       console.log(action.payload);
       state.movieId = { ...action.payload };
     },
-    movieTrailerAlready(state) {
-      state.movieId = {};
-    },
+  },
+});
+
+export const bannerMovieSlice = createSlice({
+  name: "banner",
+  initialState: {
+    isLoading: false,
+    movieData: {},
+    error: null,
+  },
+  reducers: {
+    // bannerMovieInit(state) {
+    //   state.isLoading = true;
+    //   state.movieData = {};
+    //   state.error = null;
+    // },
+    // bannerMovieSuccess(state, action) {
+    //   state.isLoading = false;
+    //   state.movieData = { ...action.payload };
+    //   state.error = null;
+    // },
+    // bannerMovieFail(state, action) {
+    //   state.isLoading = false;
+    //   state.movieData = {};
+    //   state.error = action.payload;
+    // },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.movieData = action.payload;
+      })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+      });
   },
 });
 
 export const { login, logout } = authSlice.actions;
-export const { movieTrailer, movieTrailerAlready } = moviesIdSlice.actions;
+export const { movieTrailer } = moviesIdSlice.actions;
+export const { bannerMovieInit, bannerMovieSuccess, bannerMovieFail } =
+  bannerMovieSlice.actions;

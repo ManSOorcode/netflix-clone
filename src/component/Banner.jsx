@@ -1,31 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Banner.css";
-import Requestfunction from "../api/Request";
-import axiosUrl from "../api/axios";
+
+import { useDispatch, useSelector } from "react-redux";
+import fetchData from "../store/action";
 
 const Banner = () => {
-  const [movies, setMovies] = useState([]);
-  const moviedataBase = Requestfunction();
+  const {
+    isLoading,
+    movieData: movies,
+    error,
+  } = useSelector((state) => state.banner);
 
-  const netFlixUrl = moviedataBase[0].fetch;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const abortController = new AbortController();
-
-    async function fetchData() {
-      const request = await axiosUrl.get(netFlixUrl);
-
-      setMovies(
-        request.data?.results[
-          Math.floor(Math.random() * request.data.results?.length - 1)
-        ]
-      );
-
-      return request;
-    }
-
-    fetchData();
+    dispatch(fetchData());
 
     return () => abortController.abort();
   }, []);
@@ -38,33 +29,39 @@ const Banner = () => {
 
   return (
     <>
-      <header
-        className="banner"
-        style={{
-          backgroundSize: "cover",
+      {isLoading ? (
+        <p className="loaddingScreen">Loadding...</p>
+      ) : (
+        <header
+          className="banner"
+          style={{
+            backgroundSize: "cover",
 
-          backgroundImage: `${
-            movies?.backdrop_path
-              ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
-              : ""
-          }`,
-          backgroundPosition: "center center",
+            backgroundImage: error
+              ? `${`url(${error})`}`
+              : `${
+                  movies?.backdrop_path
+                    ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
+                    : ""
+                }`,
+            backgroundPosition: "center center",
 
-          objectFit: "contain",
-        }}
-      >
-        <div className="banner_content">
-          <h1 className="banner_title">{movies?.name}</h1>
-          <div className="banner_buttons">
-            <button className="banner_button">Play</button>
-            <button className="banner_button">My List</button>
+            objectFit: "contain",
+          }}
+        >
+          <div className="banner_content">
+            <h1 className="banner_title">{movies?.name}</h1>
+            <div className="banner_buttons">
+              <button className="banner_button">Play</button>
+              <button className="banner_button">My List</button>
+            </div>
+            <h1 className="banner_description">
+              {descriptionModification(movies?.overview, 100)}
+            </h1>
           </div>
-          <h1 className="banner_description">
-            {descriptionModification(movies?.overview, 100)}
-          </h1>
-        </div>
-        <div className="banner_fadeBottom" />
-      </header>
+          <div className="banner_fadeBottom" />
+        </header>
+      )}
     </>
   );
 };
