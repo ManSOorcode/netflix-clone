@@ -29,7 +29,7 @@ const ProfileScreen = () => {
               <div className="subscription_panel">
                 <div className="standard">
                   <div className="heading_standard">
-                    <h3>Netflix standart</h3>
+                    <h3>Netflix standard</h3>
                     <h3>1080p</h3>
                   </div>
 
