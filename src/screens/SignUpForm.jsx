@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "@firebase/auth";
-import "./SignUpForm.css";
+import styles from "./SignUpForm.module.css";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -82,7 +82,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signUpScreen">
+    <div className={styles.signUpScreen}>
       <form>
         <h1>Sign In</h1>
 
@@ -99,14 +99,14 @@ const SignUpForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className={styles["error-message"]}>{error}</p>}
 
-        <button type="submit" onClick={signIn}>
+        <button type={styles.submit} onClick={signIn}>
           Sign In
         </button>
         <h4>
-          <span className="signupScreen_gray">New to Netflix? </span>
-          <span className="signupScreen_link" onClick={register}>
+          <span className={styles["signupScreen_gray"]}>New to Netflix? </span>
+          <span className={styles["signupScreen_link"]} onClick={register}>
             Sign up now.
           </span>
         </h4>
