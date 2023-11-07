@@ -4,7 +4,7 @@ import "./Banner.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import fetchData from "../store/action";
-
+//
 const Banner = () => {
   const {
     isLoading,

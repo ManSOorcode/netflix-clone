@@ -64,7 +64,6 @@ const SignUpForm = () => {
       return;
     }
 
-    console.log(auth, email, password);
     const userLogin = async () => {
       try {
         const response = await signInWithEmailAndPassword(
