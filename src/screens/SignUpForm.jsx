@@ -82,7 +82,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signUpScreen">
+    <div className="signup_screen">
       <form>
         <h1>Sign In</h1>
 
