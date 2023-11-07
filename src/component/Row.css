@@ -31,3 +31,12 @@
   transform: scale(1.08);
   opacity: 1;
 }
+
+.row_title {
+  font-size: 2rem;
+}
+@media screen and (max-width: 480px) {
+  .row_title {
+    font-size: 1.4rem;
+  }
+}

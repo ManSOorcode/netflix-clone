@@ -40,29 +40,14 @@ export const bannerMovieSlice = createSlice({
     movieData: {},
     error: null,
   },
-  reducers: {
-    // bannerMovieInit(state) {
-    //   state.isLoading = true;
-    //   state.movieData = {};
-    //   state.error = null;
-    // },
-    // bannerMovieSuccess(state, action) {
-    //   state.isLoading = false;
-    //   state.movieData = { ...action.payload };
-    //   state.error = null;
-    // },
-    // bannerMovieFail(state, action) {
-    //   state.isLoading = false;
-    //   state.movieData = {};
-    //   state.error = action.payload;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(fetchData.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.isLoading = false;
         state.movieData = action.payload;
       })
