@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "@firebase/auth";
-import "./SignUpForm.css";
+import "./SignUpform.css";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
