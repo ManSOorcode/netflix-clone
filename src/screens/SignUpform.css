@@ -1,4 +1,4 @@
-.signUpScreen {
+.signup_screen {
   width: 60%;
   max-width: 600px;
   position: absolute;
@@ -9,20 +9,20 @@
   transition: all 0.3s ease-in-out;
 }
 
-.signUpScreen > form {
+.signup_screen > form {
   display: grid;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
 }
 
-.signUpScreen > form > h1 {
+.signup_screen > form > h1 {
   text-align: left;
   margin-bottom: 40px;
   font-size: 2.2rem;
   transition: all 0.3s ease-in-out;
 }
 
-.signUpScreen > form > input {
+.signup_screen > form > input {
   padding: 10px;
   height: 60px;
   min-width: 100px;
@@ -38,7 +38,7 @@
   font-size: 1.2rem;
 }
 
-.signUpScreen > form > button {
+.signup_screen > form > button {
   padding: 16px 20px;
   font-size: 1.4rem;
 
@@ -51,7 +51,7 @@
   margin-top: 30px;
 }
 
-.signUpScreen > form > h4 {
+.signup_screen > form > h4 {
   text-align: left;
   margin-top: 30px;
   font-size: 1.2rem;

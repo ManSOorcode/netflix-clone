@@ -1,10 +1,10 @@
-import "./SignUpForm.css";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "@firebase/auth";
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -64,7 +64,6 @@ const SignUpForm = () => {
       return;
     }
 
-    console.log(auth, email, password);
     const userLogin = async () => {
       try {
         const response = await signInWithEmailAndPassword(
@@ -82,7 +81,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signUpScreen">
+    <div className="signup_screen">
       <form>
         <h1>Sign In</h1>
 
