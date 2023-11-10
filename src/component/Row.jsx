@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import image from "../../public/vite.svg";
 
 import axiosUrl from "../api/axios";
 import "./Row.css";
@@ -43,7 +44,6 @@ const Row = ({
               (!isLargeRow && movie.backdrop_path)) && (
               <img
                 onClick={() => {
-                  console.log(movie, movie.title, movie.media_type, movie.name);
                   youtubeHandler(
                     movie.id,
                     movie.media_type
@@ -51,7 +51,9 @@ const Row = ({
                         ? type
                         : movie.media_type
                       : type,
-                    type === "tv" ? movie.name : movie.title
+                    movie.media_type === "tv" || type === "tv"
+                      ? movie.name
+                      : movie.title
                   );
                 }}
                 className={`row_poster ${isLargeRow && `row_posterLarge`}`}

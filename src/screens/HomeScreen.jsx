@@ -4,21 +4,22 @@ import Banner from "../component/Banner";
 import "./HomeScreen.css";
 import Nav from "../component/Nav";
 import Row from "../component/Row";
+
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { movieTrailer } from "../store/reducer";
-import { useState } from "react";
 
 const HomeScreen = () => {
   const [isTrailer, setTrailer] = useState("");
-  const moviedataBase = Requestfunction();
-
   const dispatch = useDispatch();
+  const moviedataBase = Requestfunction();
 
   const clickhandler = (id, type, movieName, index) => {
     if (isTrailer === index) {
       setTrailer("");
     } else {
       dispatch(movieTrailer({ id: id, type: type, movieName: movieName }));
+
       setTrailer(index);
     }
   };
