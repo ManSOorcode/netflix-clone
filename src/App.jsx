@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./store/reducer";
 
 import ProfileScreen from "./screens/ProfileScreen";
-import ErrorComponent from "./component/ErrorComponent";
 
 function userAuth(user) {
   const routers = createBrowserRouter([
@@ -20,7 +19,7 @@ function userAuth(user) {
     },
     {
       path: "/profile",
-      element: user ? <ProfileScreen /> : <LoginScreen />,
+      element: user && <ProfileScreen />,
     },
   ]);
 

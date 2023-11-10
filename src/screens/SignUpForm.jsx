@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "@firebase/auth";
 import "./SignUpform.css";
+import eyeIcon from "../../public/eye-icon.jpg";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,6 @@ const SignUpForm = () => {
   };
 
   const isPasswordValid = (password) => {
-    // Add your password validation logic here
     // For example, require a minimum length, special characters, etc.
     return password.length >= 6; // Simple example: at least 6 characters
   };
@@ -91,6 +91,7 @@ const SignUpForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <input
           type="password"
           placeholder="Password"

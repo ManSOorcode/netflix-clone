@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./LoginScreen.css";
 import SignUpForm from "./SignUpForm";
+import netflixLogo from "../../public/netflix_logo.png";
 
 const LoginScreen = () => {
   const [singUp, setSignUp] = useState(false);
 
+  const logoUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png";
   return (
     <div className="screen">
       <div className="screen_background">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-          className="screen_logo"
-          alt="screen_logo"
-        />
+        <img src={netflixLogo} className="screen_logo" alt="screen_logo" />
         <button className="screen_button" onClick={() => setSignUp(true)}>
           Sign In
         </button>

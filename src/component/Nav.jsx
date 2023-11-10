@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./Nav.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import avatar from "../../public/avatar.png";
+import netflixLogo from "../../public/netflix_logo.png";
 
 const Nav = () => {
   const [isScroll, setScrollStyle] = useState(false);
@@ -22,20 +24,25 @@ const Nav = () => {
 
     return () => document.removeEventListener("scroll", settingScrollStyle);
   }, []);
+
+  const logoUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.pn";
+  const avatarUrl =
+    "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.pn";
+
   return (
     <div className={`nav ${isScroll && "nav_color"}`}>
       <div className="nav_container">
         <img
           className="nav_logo"
-          // src="https://images.ctfassets.net/y2ske730sjqp/1aONibCke6niZhgPxuiilC/2c401b05a07288746ddf3bd3943fbc76/BrandAssets_Logos_01-Wordmark.jpg?w=940"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
+          src={netflixLogo}
           alt="netflix-logo"
           onClick={() => navigate("/")}
         />
 
         <img
           className="nav_avatar"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png"
+          src={avatar}
           alt="netflix-avatar"
           onClick={() => navigate("/profile")}
         />

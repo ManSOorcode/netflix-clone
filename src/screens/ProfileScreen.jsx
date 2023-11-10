@@ -5,9 +5,14 @@ import { auth } from "../../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import avatar from "../../public/avatar.png";
+
 const ProfileScreen = () => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
+
+  const avatarUrl =
+    "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png";
 
   return (
     <div className="profileScreen">
@@ -16,7 +21,8 @@ const ProfileScreen = () => {
         <h1>Edit Profile</h1>
         <div className="profileScreen_container">
           <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png"
+            // src=""
+            src={avatar}
             alt="netflix-avatar"
             className="profileScreen_avtar"
           />
