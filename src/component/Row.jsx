@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import image from "../../public/vite.svg";
 
 import axiosUrl from "../api/axios";
 import "./Row.css";
