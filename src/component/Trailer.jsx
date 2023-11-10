@@ -74,7 +74,7 @@ const Trailer = () => {
     <div className={`trailer_container`}>
       <h2>
         {movieId?.type?.toUpperCase()} {movieId?.type === "tv" ? "series " : ""}
-        {movieId.movieName}
+        {movieId.movieName} Trailer
       </h2>
 
       <YouTube videoId={`${isTrailerId}`} opts={opts} />
