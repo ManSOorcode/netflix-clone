@@ -77,7 +77,7 @@ const SignUpForm = () => {
         );
         console.log(response);
       } catch (err) {
-        setError("Accont is not created first signup");
+        setError("Account is not created first signup");
       }
     };
 
