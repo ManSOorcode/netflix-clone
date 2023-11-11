@@ -21,7 +21,6 @@ const ProfileScreen = () => {
         <h1>Edit Profile</h1>
         <div className="profileScreen_container">
           <img
-            // src=""
             src={avatar}
             alt="netflix-avatar"
             className="profileScreen_avtar"

@@ -2,44 +2,41 @@
   width: 60%;
   max-width: 600px;
   position: absolute;
-  top: 15%;
-  padding: 60px;
-  margin: 0 auto;
+  top: 4rem;
+
+  padding: 3rem;
+
   background: rgba(0, 0, 0, 0.85);
-  transition: all 0.3s ease-in-out;
 }
 
 .signup_screen > form {
   display: grid;
-  flex-direction: column;
-  transition: all 0.3s ease-in-out;
 }
 
 .signup_screen > form > h1 {
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 2.4rem;
   font-size: 2.2rem;
-  transition: all 0.3s ease-in-out;
 }
 
 .signup_screen > form > input {
-  padding: 10px;
-  height: 60px;
-  min-width: 100px;
+  padding: 0.6rem;
+  height: 3.8rem;
+  min-width: 6.25rem;
 
   outline-width: 0;
   border-radius: 8px;
   border: none;
 
-  margin-bottom: 18px;
-  padding: 16px 20px;
+  margin-bottom: 1.125rem;
+  padding: 1rem 1.25rem;
   background: #333333;
   color: #fff;
   font-size: 1.2rem;
 }
 
 .signup_screen > form > button {
-  padding: 16px 20px;
+  padding: 1rem 1.25rem;
   font-size: 1.4rem;
 
   color: #fff;
@@ -53,7 +50,7 @@
 
 .signup_screen > form > h4 {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 1.8rem;
   font-size: 1.2rem;
 }
 .signupScreen_gray {
@@ -67,7 +64,7 @@
 
 .error-message {
   color: #e50914;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 
   border-bottom: 2px solid #333333;
   font-weight: bold;
@@ -80,11 +77,11 @@
     min-width: 100vw;
     left: 0;
     z-index: -2;
-    padding: 60px 20px 0 20px;
+    padding: 3.6rem 1.24rem 0 1.24rem;
   }
 
   .signup_screen > form {
-    margin-top: 40px;
+    margin-top: 2.2rem;
   }
 
   .signup_screen > form > h1 {
