@@ -41,7 +41,7 @@ const Banner = () => {
               ? `${`url(${error})`}`
               : `${
                   movies?.backdrop_path
-                    ? `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`
+                    ? `url("https://image.tmdb.org/t/p/w780${movies?.backdrop_path}")`
                     : ""
                 }`,
             backgroundPosition: "center center",

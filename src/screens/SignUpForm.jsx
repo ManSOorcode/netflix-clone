@@ -5,12 +5,12 @@ import {
   signInWithEmailAndPassword,
 } from "@firebase/auth";
 import "./SignUpform.css";
-import eyeIcon from "../../public/eye-icon.jpg";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  // const [passwordVisible, setPasswordVisible] = useState(false);
 
   const isEmailValid = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -21,6 +21,10 @@ const SignUpForm = () => {
     // For example, require a minimum length, special characters, etc.
     return password.length >= 6; // Simple example: at least 6 characters
   };
+
+  // const togglePasswordVisibility = () => {
+  //   setPasswordVisible(!passwordVisible);
+  // };
 
   const register = (e) => {
     e.preventDefault();
@@ -44,7 +48,7 @@ const SignUpForm = () => {
         );
         console.log(response);
       } catch (err) {
-        console.log(err.message);
+        setError("Email in use. Sign in or choose another.");
       }
     };
 
@@ -73,7 +77,7 @@ const SignUpForm = () => {
         );
         console.log(response);
       } catch (err) {
-        console.log(err.message);
+        setError("Accont is not created first signup");
       }
     };
 
@@ -90,14 +94,30 @@ const SignUpForm = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
-
+        {/* <div className="password-input-container"> */}
         <input
+          // type={passwordVisible ? "text" : "password"}
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
+        {/* <button
+            type="button"
+            className="toggle-password-button"
+            onClick={togglePasswordVisibility}
+          >
+            <img
+              src={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIo45BAzl8N7qT0CJbsLgMl9Z6s7UgBab5w&usqp=CAU"
+              }
+              alt="Toggle Password Visibility"
+            />
+          </button> */}
+        {/* </div> */}
 
         {error && <p className="error-message">{error}</p>}
 
