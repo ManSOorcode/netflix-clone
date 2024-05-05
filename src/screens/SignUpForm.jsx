@@ -112,10 +112,12 @@ const SignUpForm = () => {
     }));
   };
 
+  console.log(toggle);
+
   return (
     <div className="signup_screen">
       <form>
-        <h1>{toggle ? "Register Your Self!" : "Sign In."}</h1>
+        <h1>{toggle.isRegister ? "Register Your Self!" : "Sign In."}</h1>
 
         <input
           type="email"
@@ -145,14 +147,14 @@ const SignUpForm = () => {
         {error && <p className="error-message">{error}</p>}
 
         <button type="submit" onClick={signIn}>
-          {toggle ? "Register" : "Sign In"}
+          {toggle.isRegister ? "Register" : "Sign In"}
         </button>
         <h4>
           <span className="signupScreen_gray">
-            {toggle ? "Have a account?" : "New to Netflix?"}{" "}
+            {toggle.isRegister ? "Have a account?" : "New to Netflix?"}
           </span>
           <span className="signupScreen_link" onClick={toggleHandler}>
-            {toggle ? "Sign In" : "Sign up now."}
+            {toggle.isRegister ? " Sign In" : " Sign up now."}
           </span>
         </h4>
       </form>
