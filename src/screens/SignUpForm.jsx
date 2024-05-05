@@ -128,7 +128,7 @@ const SignUpForm = () => {
         />
         <div className="password-input-container">
           <input
-            type={!toggle.isVisible ? "text" : "password"}
+            type={!toggle.isVisible ? "password" : "text"}
             // type="password"
             placeholder="Password"
             value={password}
