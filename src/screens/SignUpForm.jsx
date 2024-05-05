@@ -10,7 +10,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  // const [passwordVisible, setPasswordVisible] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const isEmailValid = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -22,12 +22,10 @@ const SignUpForm = () => {
     return password.length >= 6; // Simple example: at least 6 characters
   };
 
-  // const togglePasswordVisibility = () => {
-  //   setPasswordVisible(!passwordVisible);
-  // };
-
   const register = (e) => {
     e.preventDefault();
+
+    console.log("click", email);
 
     if (!isEmailValid(email)) {
       setError("Invalid email address");
@@ -46,8 +44,9 @@ const SignUpForm = () => {
           email,
           password
         );
-        console.log(response);
+        console.log(response, "res");
       } catch (err) {
+        console.log(err);
         setError("Email in use. Sign in or choose another.");
       }
     };
@@ -58,36 +57,46 @@ const SignUpForm = () => {
   const signIn = (e) => {
     e.preventDefault();
 
-    if (!isEmailValid(email)) {
-      setError("Invalid email address");
-      return;
-    }
-
-    if (!isPasswordValid(password)) {
-      setError("Password must be at least 6 characters");
-      return;
-    }
-
-    const userLogin = async () => {
-      try {
-        const response = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(response);
-      } catch (err) {
-        setError("Account is not created first signup");
+    if (!toggle) {
+      //sign will work
+      if (!isEmailValid(email)) {
+        setError("Invalid email address");
+        return;
       }
-    };
 
-    userLogin();
+      if (!isPasswordValid(password)) {
+        setError("Password must be at least 6 characters");
+        return;
+      }
+
+      const userLogin = async () => {
+        try {
+          const response = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          console.log(response);
+        } catch (err) {
+          setError("Account is not created first signup");
+        }
+      };
+
+      userLogin();
+    } else {
+      //user Register
+      register(e);
+    }
+  };
+
+  const toggleHandler = () => {
+    setToggle(true);
   };
 
   return (
     <div className="signup_screen">
       <form>
-        <h1>Sign In</h1>
+        <h1>{toggle ? "Register Your Self" : "Sign In"}</h1>
 
         <input
           type="email"
@@ -105,28 +114,15 @@ const SignUpForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {/* <button
-            type="button"
-            className="toggle-password-button"
-            onClick={togglePasswordVisibility}
-          >
-            <img
-              src={
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIo45BAzl8N7qT0CJbsLgMl9Z6s7UgBab5w&usqp=CAU"
-              }
-              alt="Toggle Password Visibility"
-            />
-          </button> */}
-        {/* </div> */}
 
         {error && <p className="error-message">{error}</p>}
 
         <button type="submit" onClick={signIn}>
-          Sign In
+          {toggle ? "Register" : "Sign In"}
         </button>
         <h4>
           <span className="signupScreen_gray">New to Netflix? </span>
-          <span className="signupScreen_link" onClick={register}>
+          <span className="signupScreen_link" onClick={toggleHandler}>
             Sign up now.
           </span>
         </h4>
