@@ -5,12 +5,21 @@ import {
   signInWithEmailAndPassword,
 } from "@firebase/auth";
 import "./SignUpform.css";
+import {
+  PiEyeBold,
+  PiEyeClosedBold,
+  PiEyeSlashBold,
+  PiEyesBold,
+} from "react-icons/pi";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState({
+    isRegister: false,
+    isVisible: false,
+  });
 
   const isEmailValid = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -57,7 +66,7 @@ const SignUpForm = () => {
   const signIn = (e) => {
     e.preventDefault();
 
-    if (!toggle) {
+    if (!toggle.isRegister) {
       //sign will work
       if (!isEmailValid(email)) {
         setError("Invalid email address");
@@ -90,30 +99,48 @@ const SignUpForm = () => {
   };
 
   const toggleHandler = () => {
-    setToggle(true);
+    setToggle((prev) => ({
+      ...prev,
+      isRegister: !prev.isRegister,
+    }));
+  };
+
+  const passwordToggleHandler = () => {
+    setToggle((prev) => ({
+      ...prev,
+      isVisible: !prev.isVisible,
+    }));
   };
 
   return (
     <div className="signup_screen">
       <form>
-        <h1>{toggle ? "Register Your Self" : "Sign In"}</h1>
+        <h1>{toggle ? "Register Your Self!" : "Sign In."}</h1>
 
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
           required
         />
-        {/* <div className="password-input-container"> */}
-        <input
-          // type={passwordVisible ? "text" : "password"}
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="password-input-container">
+          <input
+            type={!toggle.isVisible ? "text" : "password"}
+            // type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <div onClick={passwordToggleHandler} className="pass_parent">
+            {!toggle.isVisible ? (
+              <PiEyeClosedBold className="pass_icon" />
+            ) : (
+              <PiEyeBold className="pass_icon" />
+            )}
+          </div>
+        </div>
 
         {error && <p className="error-message">{error}</p>}
 
@@ -121,9 +148,11 @@ const SignUpForm = () => {
           {toggle ? "Register" : "Sign In"}
         </button>
         <h4>
-          <span className="signupScreen_gray">New to Netflix? </span>
+          <span className="signupScreen_gray">
+            {toggle ? "Have a account?" : "New to Netflix?"}{" "}
+          </span>
           <span className="signupScreen_link" onClick={toggleHandler}>
-            Sign up now.
+            {toggle ? "Sign In" : "Sign up now."}
           </span>
         </h4>
       </form>

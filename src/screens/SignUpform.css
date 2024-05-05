@@ -33,6 +33,52 @@
   background: #333333;
   color: #fff;
   font-size: 1.2rem;
+  border: 2px solid transparent;
+}
+
+.signup_screen > form > input:focus-within {
+  border-color: rgb(79, 204, 246);
+}
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem;
+  height: 3.8rem;
+  min-width: 6.25rem;
+
+  outline-width: 0;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  margin-bottom: 1.125rem;
+  padding: 1rem 1.25rem;
+  background: #333333;
+}
+
+.password-input-container > input {
+  background: #333333;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  height: 3.6rem;
+  padding: 1rem 0;
+  outline-width: 0;
+  border: none;
+}
+.password-input-container:focus-within {
+  border-color: rgb(79, 204, 246);
+}
+.pass_icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.pass_parent {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .signup_screen > form > button {
